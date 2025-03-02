@@ -14,7 +14,7 @@
         >
         <span class="text-gray-700"> {{ product.regular_price.value }}</span>
       </div>
-      <div v-if="product.type === 'configurable'" class="mt-2">
+      <div v-if="product.type === PRODUCT_TYPE_CONFIGURABLE" class="mt-2">
         <div
           v-for="option in product.configurable_options"
           :key="option.attribute_id"
@@ -79,6 +79,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useCartStore } from "@/store/cart";
+const PRODUCT_TYPE_CONFIGURABLE = "configurable";
 const cartStore = useCartStore();
 const toast = useToast();
 const props = defineProps({
@@ -94,7 +95,7 @@ const selectedVariant = computed(() => {
   );
 });
 const isProductConfigurable = computed(
-  () => props.product.type === "configurable"
+  () => props.product.type === PRODUCT_TYPE_CONFIGURABLE
 );
 const isDisabledProductBtn = computed(
   () => isProductConfigurable.value && !selectedVariant.value
