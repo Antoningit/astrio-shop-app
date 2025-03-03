@@ -3,7 +3,7 @@
     <div class="container mx-auto flex justify-center items-center">
       <div>
         <nuxt-link to="/">
-          <img src="/assets//images/logo.png" alt="" />
+          <img src="/images/logo.png" alt="" />
         </nuxt-link>
       </div>
     </div>
